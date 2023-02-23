@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\usepackage{dialogue}
+\usepackage{indentfirst}
+
+\title{Week 3 ChatGPT log}
+\author{Aaron Frye}
+
+\begin{document}
+
+\section{Intersection in Sets of Sets}
+
+These are the results from prompting ChatGPT to explain how an element
+of a set of sets relates to the result of intersecting all of the sets it holds.
+
+\begin{dialogue}
+    \speak{Student} what
+    \speak{ChatGPT} what
+\end{dialogue}
+
+\section{Order of Operations}
+
+When prompted to clarify the order of operations between equality and subset,
+chatGPT was able to give a correct explaination initially.
+
+\begin{dialogue}
+    \speak{Student} In set theory, what is the precedence of equality relative to subset?
+
+    \speak{ChatGPT} In set theory, equality has a higher precedence than subset. 
+        This means that, when evaluating a statement involving both equality and subset, equality should be considered first. 
+        For example, in the expression $A = B \subseteq C$, the statement $A = B$ should be evaluated before determining whether $B \subseteq C$.
+\end{dialogue}
+
+Then, when pressed futher, ChatGPT was able to illucidate some of the results of 
+having an equality and a subset relationship.
+
+\begin{dialogue}
+    \speak{student} Does $A = B \subseteq C$ imply that $A \subseteq C$?
+    \speak{ChatGPT} Yes, $A = B \subseteq C$ does imply that $A \subseteq C$. If $A = B$ and $B \subseteq C$, then by definition of subset, 
+        all elements in set B are also elements in set C. Since A and B are equal, this means that all elements in set A are also elements in set C, 
+        and so $A \subseteq C$.
+\end{dialogue}
+
+
+
+
+\end{document}

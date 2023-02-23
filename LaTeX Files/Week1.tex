@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\author{Dr.P}
+\title{Latex test}
+
+
+\begin{document}
+
+Hello
+
+\section{Part 1}
+
+\begin{quote}
+  In step 3 of the proof, the disjunctive syllogism is used to deduce that Y is false.
+
+Disjunctive syllogism is a rule of inference that allows one to deduce a disjunct from a false disjunction and any proposition that is equivalent to the negation of one of its disjuncts. It can be expressed as "If P or Q is false and P is false, then Q is false."
+
+In this proof, we can see that the disjunction is (X or Y) and it's false, that means that neither X nor Y is true. By using that information and the fact that we know that X is false, we can conclude that Y is false as well.
+
+In other words, in this proof, we are using (X or Y) is false as the premise and (X is false) as the equivalent of the negation of one of the disjuncts (X) to deduce that Y is false.
+\end{quote}
+
+\newpage
+
+\end{document}
+\begin{verbatim}
+  data X : Set
+  data Y : Set
+  data Z : Set
+
+  proof : (notXorY : (x : X) → (y : Y) → Empty) → (impliesZY : (z : Z) → (y : Y) → Set) → (z : Z) → Empty
+  proof notXorY impliesZY z = notXorY _ (disjunctionIntroduction notXorY impliesZY z)
+
+  disjunctionIntroduction : (notXorY : (x : X) → (y : Y) → Empty) → (impliesZY : (z : Z) → (y : Y) → Set) → (z : Z) → (x : X) + (y : Y)
+  disjunctionIntroduction notXorY impliesZY z = inr (impliesZY z _)
+\end{verbatim}
+
+This is in section 1.
+
+\begin{verbatim}
+data X : Set
+data Y : Set
+data Z : Set
+
+proof : (notXorY : (x : X) → (y : Y) → Empty) → (impliesZY : (z : Z) → (y : Y) → Set) → (z : Z) → Empty
+proof notXorY impliesZY z = notXorY _ (disjunctionIntroduction notXorY impliesZY z)
+
+disjunctionIntroduction : (notXorY : (x : X) → (y : Y) → Empty) → (impliesZY : (z : Z) → (y : Y) → Set) → (z : Z) → (x : X) + (y : Y)
+disjunctionIntroduction notXorY impliesZY z = inr (impliesZY z _)
+\end{verbatim}
+
+\begin{verbatim}
+  In this version, we define three types X, Y, Z and a function proof that takes notXorY and impliesZY as inputs, and a single argument of type Z. It returns an empty type, which is equivalent to false.
+  The function disjunctionIntroduction takes notXorY and impliesZY and a single argument of type Z as inputs. It returns a disjunction of X and Y, which is equivalent to (X or Y).
+
+  The function proof uses the function disjunctionIntroduction as well as the input function notXorY and impliesZY to prove that Z is false. The function disjunctionIntroduction uses the input functions notXorY and impliesZY to introduce the disjunction of X and Y.
+
+  The function proof applies the function disjunctionIntroduction to the input z and the result is passed to the notXorY, which returns the empty type, equivalent to false.
+
+  This version of the proof is consistent and well-typed and it uses the disjunction introduction to go from Y to (X or Y) and it's consistent with the original proof.
+  Please let me know if you have any other question.
+\end{verbatim}
+
+\end{document}
